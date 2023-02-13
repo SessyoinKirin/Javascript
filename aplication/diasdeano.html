@@ -1,0 +1,93 @@
+<!--
+ *                        ::
+ *                       :;J7, :,                        ::;7:
+ *                       ,ivYi, ,                       ;LLLFS:
+ *                       :iv7Yi                       :7ri;j5PL
+ *                      ,:ivYLvr                    ,ivrrirrY2X,
+ *                      :;r@Wwz.7r:                :ivu@kexianli.
+ *                     :iL7::,:::iiirii:ii;::::,,irvF7rvvLujL7ur
+ *                    ri::,:,::i:iiiiiii:i:irrv177JX7rYXqZEkvv17
+ *                 ;i:, , ::::iirrririi:i:::iiir2XXvii;L8OGJr71i
+ *               :,, ,,:   ,::ir@mingyi.irii:i:::j1jri7ZBOS7ivv,
+ *                  ,::,    ::rv77iiiriii:iii:i::,rvLq@huhao.Li
+ *              ,,      ,, ,:ir7ir::,:::i;ir:::i:i::rSGGYri712:
+ *            :::  ,v7r:: ::rrv77:, ,, ,:i7rrii:::::, ir7ri7Lri
+ *           ,     2OBBOi,iiir;r::        ,irriiii::,, ,iv7Luur:
+ *         ,,     i78MBBi,:,:::,:,  :7FSL: ,iriii:::i::,,:rLqXv::
+ *         :      iuMMP: :,:::,:ii;2GY7OBB0viiii:i:iii:i:::iJqL;::
+ *        ,     ::::i   ,,,,, ::LuBBu BBBBBErii:i:i:i:i:i:i:r77ii
+ *       ,       :       , ,,:::rruBZ1MBBqi, :,,,:::,::::::iiriri:
+ *      ,               ,,,,::::i:  @arqiao.       ,:,, ,:::ii;i7:
+ *     :,       rjujLYLi   ,,:::::,:::::::::,,   ,:i,:,,,,,::i:iii
+ *     ::      BBBBBBBBB0,    ,,::: , ,:::::: ,      ,,,, ,,:::::::
+ *     i,  ,  ,8BMMBBBBBBi     ,,:,,     ,,, , ,   , , , :,::ii::i::
+ *     :      iZMOMOMBBM2::::::::::,,,,     ,,,,,,:,,,::::i:irr:i:::,
+ *     i   ,,:;u0MBMOG1L:::i::::::  ,,,::,   ,,, ::::::i:i:iirii:i:i:
+ *     :    ,iuUuuXUkFu7i:iii:i:::, :,:,: ::::::::i:i:::::iirr7iiri::
+ *     :     :rk@Yizero.i:::::, ,:ii:::::::i:::::i::,::::iirrriiiri::,
+ *      :      5BMBBBBBBSr:,::rv2kuii:::iii::,:i:,, , ,,:,:i@petermu.,
+ *           , :r50EZ8MBBBBGOBBBZP7::::i::,:::::,: :,:,::i;rrririiii::
+ *               :jujYY7LS0ujJL7r::,::i::,::::::::::::::iirirrrrrrr:ii:
+ *            ,:  :@kevensun.:,:,,,::::i:i:::::,,::::::iir;ii;7v77;ii;i,
+ *            ,,,     ,,:,::::::i:iiiii:i::::,, ::::iiiir@xingjief.r;7:i,
+ *         , , ,,,:,,::::::::iiiiiiiiii:,:,:::::::::iiir;ri7vL77rrirri::
+ *          :,, , ::::::::i:::i:::i:i::,,,,,:,::i:i:::iir;@Secbone.ii:::
+ * 
+ * @Author: SessyoinChen
+ * @Date: 2023-02-13 14:36:17
+ * @LastEditors: SessyoinChen
+ * @LastEditTime: 2023-02-13 15:12:37
+ * @FilePath: \Javascript\aplication\diasdeano.html
+ * @Description: 
+ * 
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="ano" name="ano" value="" placeholder="ano">
+    
+    <input type="number" id="mes" name="mes" value="" placeholder="mes">
+    
+    <input type="number" id="dia" name="dia" value="" placeholder="dia">
+    
+    <button onclick="enviar()">Enviar</button>
+
+    <p></p>
+
+    <script type="text/javascript">
+        function enviar(){
+            var ano = parseInt(document.getElementById('ano').value)
+            var mes = parseInt(document.getElementById('mes').value)
+            var dia = parseInt(document.getElementById('dia').value)
+            var total = 0
+            switch(mes){
+                case 12: total += 30;
+                case 11: total += 31;
+                case 10: total += 30;
+                case 9: total += 31;
+                case 8: total += 31;
+                case 7: total += 30;
+                case 6: total += 31;
+                case 5: total += 30;
+                case 4: total += 31;
+                case 3: 
+                    if(ano % 4 === 0 && ano % 100 !==0 || ano % 400 === 0){
+                        total += 29
+                    }else{
+                        total += 28
+                    }
+                case 2: total += 31;
+            }
+            total += dia
+            document.querySelector("p").innerHTML = 'Já passou '+total+' dias no ano '+ano+'.'
+        }
+    </script>
+</body>
+</html>
